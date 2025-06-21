@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Data Compression & Decompression Portal
 
 ## Features
@@ -52,3 +53,6 @@
 ## Usage
 - Visit the frontend at `localhost:3000`
 - Backend runs at `localhost:5000`
+=======
+# Data-Compression-Decompression-Portal
+>>>>>>> 7bf1310c7d61993b50a1c43cc73f8fc22ebd929e
