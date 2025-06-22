@@ -45,7 +45,9 @@ function App() {
 
     try {
       const url = mode === 'compress' ? '/api/compress' : '/api/decompress';
-      const res = await axios.post(url, formData, { baseURL: 'http://localhost:5000' });
+      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+      const res = await axios.post(url, formData, { baseURL: API_BASE_URL });
+
       if (mode === 'compress') {
         setStats(res.data.stats);
         setResultFile(res.data.compressed);
