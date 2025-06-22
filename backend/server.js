@@ -13,6 +13,7 @@ app.use(express.json());
 app.post('/api/compress', upload.single('file'), (req, res) => {
   const { algorithm } = req.body;
   const fileBuffer = fs.readFileSync(req.file.path);
+  console.log('File buffer length:', fileBuffer.length);
   let result, stats;
   const start = Date.now();
 

@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
 
 const ALGO_EXPLANATIONS = {
   huffman: "Huffman Coding is a lossless compression algorithm that assigns variable-length codes to input characters, with shorter codes assigned to more frequent characters.",
@@ -57,6 +70,8 @@ function App() {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  
 
   return (
   <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-900 flex items-center justify-center py-10">
@@ -136,6 +151,32 @@ function App() {
           </div>
         </div>
       )}
+      {stats && (
+        <div className="mt-6">
+          <Bar
+            data={{
+              labels: ['Original Size', 'Compressed Size'],
+              datasets: [
+                {
+                  label: 'File Size (bytes)',
+                  data: [stats.originalSize, stats.compressedSize ?? stats.decompressedSize],
+                  backgroundColor: ['#3b82f6', '#10b981'],
+                },
+              ],
+            }}
+            options={{
+              responsive: true,
+              plugins: {
+                legend: { display: false },
+                title: { display: true, text: 'Compression Results' },
+              },
+              scales: {
+                y: { beginAtZero: true },
+              },
+            }}
+          />
+        </div>
+      )}
       {resultFile && (
         <button
           onClick={downloadFile}
@@ -143,6 +184,20 @@ function App() {
         >
           Download {mode === 'compress' ? 'Compressed' : 'Decompressed'} File
         </button>
+      )}
+      {meta && mode === 'compress' && algorithm === 'huffman' && (
+        <div className="mt-4">
+          <label className="block font-semibold text-slate-700 mb-1">
+            Meta JSON (copy this for decompression)
+          </label>
+          <textarea
+            className="w-full border border-slate-300 rounded-lg p-2 bg-slate-50 text-xs"
+            value={meta}
+            readOnly
+            rows={4}
+            onFocus={e => e.target.select()}
+          />
+        </div>
       )}
       <div className="mt-8 bg-gradient-to-r from-indigo-100 via-blue-100 to-slate-100 rounded-lg p-4 shadow-inner">
         <h2 className="font-bold text-indigo-700 mb-1">Algorithm Explanation</h2>
