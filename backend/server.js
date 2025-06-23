@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/compress', upload.single('file'), (req, res) => {
+  console.log('Received file:', req.file);
   const { algorithm } = req.body;
   const fileBuffer = fs.readFileSync(req.file.path);
   console.log('File buffer length:', fileBuffer.length);
