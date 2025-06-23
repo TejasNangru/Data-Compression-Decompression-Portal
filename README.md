@@ -1,6 +1,8 @@
 # Data Compression & Decompression Portal
 
-[Hosted Live (Frontend@Vercel Backend@Render](https://data-compression-decompression-port-lovat.vercel.app/)  
+[Hosted Live (Frontend@Vercel and Backend@Render](https://data-compression-decompression-port-lovat.vercel.app/)  
+Due to free version, Backend at Render goes to sleep-mode after 15 minutes of inactivity, so you can feel a delay in first time your Vercel frontend gets response from Render's Backend. This gets better at subsequent requests.
+
 [Video Walkthrough](https://your-demo-video-link.com)
 
 ---
