@@ -1,82 +1,78 @@
-# Data Compression & Decompression Portal
+# 🚀 Data Compression & Decompression Portal
 
-[Hosted Live (Frontend@Vercel and Backend@Render](https://data-compression-decompression-port-lovat.vercel.app/)  
-Due to free version, Backend at Render goes to sleep-mode after 15 minutes of inactivity, so you can feel a delay in first time your Vercel frontend gets response from Render's Backend. This gets better at subsequent requests.
+[🌐 Live App (Frontend @ Vercel, Backend @ Render)](https://data-compression-decompression-port-lovat.vercel.app/)  
+⚠️ *Note: The backend (Render) may take 10–20 seconds to respond on the first request due to free-tier sleep mode. Subsequent requests are much faster!*
 
-[Video Walkthrough](https://your-demo-video-link.com)
-
----
-
-## Project Description
-
-A web portal to upload files and apply lossless compression algorithms (Huffman Coding or Run-Length Encoding), view compression statistics, and download processed files. The app also explains each algorithm and visualizes compression results.
+[🎥 Video Walkthrough](https://youtu.be/k0KVpDGTDDM?si=SSHDbapf-dN-TWzs)
 
 ---
 
-## Features
+## 📖 Project Description
 
-- Upload files (text, image, binary) and compress/decompress using Huffman or RLE
-- Download compressed or decompressed files
-- View compression statistics (original size, compressed size, ratio, time)
-- Visualize compression results with charts
-- Learn about each algorithm in the UI
-- Responsive design for desktop and mobile
-- Robust error handling for unsupported files and decompression errors
+Data Compression & Decompression Portal is a full-stack web app that lets you upload files, compress or decompress them using **Huffman Coding** or **Run-Length Encoding (RLE)**, and download the processed results.  
+The portal visualizes compression statistics, explains each algorithm, and is fully responsive.
 
----
+### 🧩 **Algorithms & Best Use Cases**
 
-## Tech Stack
+- **Huffman Coding:**  
+  Assigns variable-length codes to input characters, optimizing for frequent symbols.  
+  *Best for:* Text files or data with lots of repeated characters. Less effective on already compressed files (like JPEG/PNG images).
 
-| Layer      | Technology                       |
-|------------|----------------------------------|
-| Frontend   | React.js, Tailwind CSS, Chart.js |
-| Backend    | Node.js, Express.js, Multer      |
+- **Run-Length Encoding (RLE):**  
+  Replaces sequences of the same value with a single value and a count.  
+  *Best for:* Data with long runs of repeated values (e.g., simple text, bitmap images). Not effective for most images or HTML.
 
 ---
 
-## Setup Instructions
+## ✨ Features
+
+- 📁 Upload & process files (text, image, binary)
+- 🔄 Compress or decompress using Huffman or RLE
+- 📉 View original size, compressed size, ratio, and time
+- 📊 Visualize compression results with interactive charts
+- ℹ️ Learn about each algorithm in the UI
+- 📥 Download compressed or decompressed files
+- 🖥️ Responsive design for desktop & mobile
+- ⚠️ Robust error handling for unsupported files & decompression errors
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer         | Technology                                      |
+|---------------|-------------------------------------------------|
+| **Frontend**  | React.js, Tailwind CSS, Chart.js (react-chartjs-2) |
+| **Backend**   | Node.js, Express.js, Multer, fs                 |
+| **Algorithms**| Huffman Coding, Run-Length Encoding (RLE)       |
+| **Hosting**   | Frontend: Vercel<br>Backend: Render             |
+
+---
+
+## 🏗️ Setup Instructions (Run Locally)
 
 ### Backend
 
-  1. `cd backend`
-  2. `npm install`
-  3. `npm start`
-
+1. `cd backend`
+2. `npm install`
+3. `npm start`
 
 
 ### Frontend
 
-  1. `cd frontend`
-  2. `npm install`
-  3. `npm start`
-
+1. `cd frontend`
+2. `npm install`
+3. `npm start`
 
 
 ### Usage
 
-- Visit the frontend at [http://localhost:3000](http://localhost:3000)
+- Open your browser at [http://localhost:3000](http://localhost:3000)
 - Backend runs at [http://localhost:5000](http://localhost:5000)
-- For production, set `REACT_APP_API_BASE_URL` in `frontend/.env` to your backend URL (e.g., Render)
+- For production, set `REACT_APP_API_BASE_URL` in `frontend/.env` to your Render backend URL.
 
 ---
 
-## Algorithm Explanations & Best Use Cases
 
-### Huffman Coding
 
-- **Description:** Assigns variable-length codes to input characters, giving shorter codes to more frequent characters.
-- **Best for:** Text files and data with lots of repeated characters. Less effective on already compressed images.
 
-### Run-Length Encoding (RLE)
 
-- **Description:** Replaces sequences of the same value with a single value and a count.
-- **Best for:** Files with long runs of repeated characters (e.g., simple text, bitmap images). Not effective for most images or HTML.
-
----
-
-## Demo Links
-
-- **Live App:** [https://your-frontend.vercel.app](https://your-frontend.vercel.app)
-- **Video Walkthrough:** [https://your-demo-video-link.com](https://your-demo-video-link.com)
-
----
